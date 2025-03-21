@@ -3,3 +3,11 @@ test_xlab/Library
 test_xlab/Logs
 test_xlab/UserSettings
 *.csproj
+Golf/Golf.sln
+Golf/.vsconfig
+Golf/UserSettings
+Golf/obj
+Golf/Logs
+Golf/Library
+Golf/.vscode
+Golf/.vs
