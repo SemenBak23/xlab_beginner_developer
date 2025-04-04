@@ -42,6 +42,7 @@ namespace Golf
             GameEvents.onCollisionStones -= OnGameOver;
 
             levelContr.enabled = false;
+
             playerContr.enabled = false;
         }
     }
