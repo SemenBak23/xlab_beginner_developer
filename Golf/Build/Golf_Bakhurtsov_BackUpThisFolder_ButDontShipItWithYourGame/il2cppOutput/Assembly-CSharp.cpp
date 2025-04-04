@@ -2941,8 +2941,6 @@ inline void List_1__ctor_m6DD2E528B694E1BF27A34AD5D41DA106FF82743C (List_1_tB951
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void WaitForSeconds__ctor_m579F95BADEDBAB4B3A7E302C6EE3995926EF2EFC (WaitForSeconds_tF179DF251655B8DF044952E70A60DF4B358A3DD3* __this, float ___seconds0, const RuntimeMethod* method) ;
 // System.Void System.NotSupportedException::.ctor()
 IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void NotSupportedException__ctor_m1398D0CDE19B36AA3DE9392879738C1EA2439CDF (NotSupportedException_t1429765983D409BD2986508963C98D214E4EBF4A* __this, const RuntimeMethod* method) ;
-// System.Boolean UnityEngine.Input::GetMouseButton(System.Int32)
-IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR bool Input_GetMouseButton_mE545CF4B790C6E202808B827E3141BEC3330DB70 (int32_t ___button0, const RuntimeMethod* method) ;
 // UnityEngine.Quaternion UnityEngine.Quaternion::Euler(System.Single,System.Single,System.Single)
 IL2CPP_MANAGED_FORCE_INLINE IL2CPP_METHOD_ATTR Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 Quaternion_Euler_mD4601D966F1F58F3FCA01B3FC19A12D0AD0396DD_inline (float ___x0, float ___y1, float ___z2, const RuntimeMethod* method) ;
 // UnityEngine.Quaternion UnityEngine.Quaternion::RotateTowards(UnityEngine.Quaternion,UnityEngine.Quaternion,System.Single)
@@ -4709,62 +4707,58 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Player_Update_mB677F6409677997FD84A3155E
 		Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 L_1;
 		L_1 = Transform_get_position_m69CD5FA214FDAE7BB701552943674846C220FDE1(L_0, NULL);
 		__this->___m_lastPosition_10 = L_1;
-		// m_isDown = Input.GetMouseButton(0);
-		bool L_2;
-		L_2 = Input_GetMouseButton_mE545CF4B790C6E202808B827E3141BEC3330DB70(0, NULL);
-		__this->___m_isDown_5 = L_2;
 		// Quaternion rot = stick.localRotation;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_3 = __this->___stick_4;
-		NullCheck(L_3);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_4;
-		L_4 = Transform_get_localRotation_mD53D37611A5DAE93EC6C7BBCAC337408C5CACA77(L_3, NULL);
-		V_0 = L_4;
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_2 = __this->___stick_4;
+		NullCheck(L_2);
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_3;
+		L_3 = Transform_get_localRotation_mD53D37611A5DAE93EC6C7BBCAC337408C5CACA77(L_2, NULL);
+		V_0 = L_3;
 		// Quaternion toRot = Quaternion.Euler(0, 0, m_isDown ? range : -range);
-		bool L_5 = __this->___m_isDown_5;
+		bool L_4 = __this->___m_isDown_5;
 		G_B1_0 = (0.0f);
 		G_B1_1 = (0.0f);
-		if (L_5)
+		if (L_4)
 		{
 			G_B2_0 = (0.0f);
 			G_B2_1 = (0.0f);
-			goto IL_0044;
+			goto IL_0038;
 		}
 	}
 	{
-		float L_6 = __this->___range_6;
-		G_B3_0 = ((-L_6));
+		float L_5 = __this->___range_6;
+		G_B3_0 = ((-L_5));
 		G_B3_1 = G_B1_0;
 		G_B3_2 = G_B1_1;
-		goto IL_004a;
+		goto IL_003e;
 	}
 
-IL_0044:
+IL_0038:
 	{
-		float L_7 = __this->___range_6;
-		G_B3_0 = L_7;
+		float L_6 = __this->___range_6;
+		G_B3_0 = L_6;
 		G_B3_1 = G_B2_0;
 		G_B3_2 = G_B2_1;
 	}
 
-IL_004a:
+IL_003e:
 	{
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_8;
-		L_8 = Quaternion_Euler_mD4601D966F1F58F3FCA01B3FC19A12D0AD0396DD_inline(G_B3_2, G_B3_1, G_B3_0, NULL);
-		V_1 = L_8;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_7;
+		L_7 = Quaternion_Euler_mD4601D966F1F58F3FCA01B3FC19A12D0AD0396DD_inline(G_B3_2, G_B3_1, G_B3_0, NULL);
+		V_1 = L_7;
 		// rot = Quaternion.RotateTowards(rot, toRot, speed * Time.deltaTime);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_9 = V_0;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_10 = V_1;
-		float L_11 = __this->___speed_7;
-		float L_12;
-		L_12 = Time_get_deltaTime_m7AB6BFA101D83E1D8F2EF3D5A128AEE9DDBF1A6D(NULL);
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_13;
-		L_13 = Quaternion_RotateTowards_mD7C332050D876CB28A704B9005476BE06823F85F_inline(L_9, L_10, ((float)il2cpp_codegen_multiply(L_11, L_12)), NULL);
-		V_0 = L_13;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_8 = V_0;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_9 = V_1;
+		float L_10 = __this->___speed_7;
+		float L_11;
+		L_11 = Time_get_deltaTime_m7AB6BFA101D83E1D8F2EF3D5A128AEE9DDBF1A6D(NULL);
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_12;
+		L_12 = Quaternion_RotateTowards_mD7C332050D876CB28A704B9005476BE06823F85F_inline(L_8, L_9, ((float)il2cpp_codegen_multiply(L_10, L_11)), NULL);
+		V_0 = L_12;
 		// stick.localRotation = rot;
-		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_14 = __this->___stick_4;
-		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_15 = V_0;
-		NullCheck(L_14);
-		Transform_set_localRotation_mAB4A011D134BA58AB780BECC0025CA65F16185FA(L_14, L_15, NULL);
+		Transform_tB27202C6F4E36D225EE28A13E4D662BF99785DB1* L_13 = __this->___stick_4;
+		Quaternion_tDA59F214EF07D7700B26E40E562F267AF7306974 L_14 = V_0;
+		NullCheck(L_13);
+		Transform_set_localRotation_mAB4A011D134BA58AB780BECC0025CA65F16185FA(L_13, L_14, NULL);
 		// }
 		return;
 	}
